@@ -1,6 +1,6 @@
 # Getting started
 
-API for E-commerce Partners. This document includes Cart, Discount, Payment, Order and Return related endpoints provided by Global Miles.
+API for Ecommerce Partners. This document includes Cart, Discount, Payment, Order and Return related endpoints provided by Global Miles.
 
 ## How to Build
 
@@ -13,7 +13,7 @@ To check if node and npm have been successfully installed, write the following c
 * `node --version`
 * `npm -version`
 
-![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Global%20Miles%20ECommerce%20API-Node)
+![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
 
 Now use npm to resolve all dependencies by running the following command in the root directory (of the SDK folder):
 
@@ -21,13 +21,13 @@ Now use npm to resolve all dependencies by running the following command in the 
 npm install
 ```
 
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Global%20Miles%20ECommerce%20API-Node)
+![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
 
 ![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency2)
 
 This will install all dependencies in the `node_modules` folder.
 
-Once dependencies are resolved, you will need to move the folder `GlobalMilesECommerceAPILib ` in to your `node_modules` folder.
+Once dependencies are resolved, you will need to move the folder `GlobalMilesEcommerceAPILib ` in to your `node_modules` folder.
 
 ## How to Use
 
@@ -42,7 +42,7 @@ Click on `File` and select `Open Folder`.
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Global%20Miles%20ECommerce%20API-Node)
+![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
 
 ### 2. Creating a Test File
 
@@ -54,9 +54,9 @@ var lib = require('lib');
 
 Save changes.
 
-![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Global%20Miles%20ECommerce%20API-Node)
+![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
 
-![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Global%20Miles%20ECommerce%20API-Node)
+![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
 
 ### 3. Running The Test File
 
@@ -66,7 +66,7 @@ To run the `index.js` file, open up the command prompt and navigate to the Path 
 node index.js
 ```
 
-![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Global%20Miles%20ECommerce%20API-Node)
+![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
 
 
 ## How to Test
@@ -87,11 +87,11 @@ Tests can be run in a number of ways:
 ### Method 3 (Run specific controller's tests)
 
 1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  Global Miles ECommerce APIController`  to run all the tests in that controller file.
+2. Type `mocha  Global Miles Ecommerce APIController`  to run all the tests in that controller file.
 
 > To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
 
-![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Global%20Miles%20ECommerce%20APIController)
+![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Global%20Miles%20Ecommerce%20APIController)
 
 ## Initialization
 
@@ -204,7 +204,7 @@ if (oAuthManager.isTokenSet()) {
 ## <a name="list_of_controllers"></a>List of Controllers
 
 * [PayWithMilesPointsController](#pay_with_miles_points_controller)
-* [TransactionController](#transaction_controller)
+* [EarnMilesPointsController](#earn_miles_points_controller)
 * [AuthenticationController](#authentication_controller)
 * [ReturnController](#return_controller)
 
@@ -247,10 +247,10 @@ function listPointPayments(accept, contentType, authorization, storeCode, filter
     var accept = 'Accept';
     var contentType = 'Content-Type';
     var authorization = 'Authorization';
-    var storeCode = Store Code;
-    var filterByCreatedAt = Filter By Created_At;
-    var filterByStatus = Filter By Status;
-    var sortBy = Sort By;
+    var storeCode = 'StoreCode';
+    var filterByCreatedAt = 'FilterByCreatedAt';
+    var filterByStatus = 'FilterByStatus';
+    var sortBy = 'SortBy';
 
     controller.listPointPayments(accept, contentType, authorization, storeCode, filterByCreatedAt, filterByStatus, sortBy, function(error, response, context) {
 
@@ -406,17 +406,17 @@ function createStartPointPayment(accept, contentType, authorization, body, callb
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="transaction_controller"></a>![Class: ](https://apidocs.io/img/class.png ".TransactionController") TransactionController
+## <a name="earn_miles_points_controller"></a>![Class: ](https://apidocs.io/img/class.png ".EarnMilesPointsController") EarnMilesPointsController
 
 ### Get singleton instance
 
-The singleton instance of the ``` TransactionController ``` class can be accessed from the API Client.
+The singleton instance of the ``` EarnMilesPointsController ``` class can be accessed from the API Client.
 
 ```javascript
-var controller = lib.TransactionController;
+var controller = lib.EarnMilesPointsController;
 ```
 
-### <a name="create_order_info"></a>![Method: ](https://apidocs.io/img/method.png ".TransactionController.createOrderInfo") createOrderInfo
+### <a name="create_order_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesPointsController.createOrderInfo") createOrderInfo
 
 > This endpoint allows to create an order for earn a miles / points. It may also include discounts and payments.
 
@@ -452,7 +452,7 @@ function createOrderInfo(accept, contentType, authorization, body, callback)
 
 
 
-### <a name="create_cart_info"></a>![Method: ](https://apidocs.io/img/method.png ".TransactionController.createCartInfo") createCartInfo
+### <a name="create_cart_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesPointsController.createCartInfo") createCartInfo
 
 > This endpoint allows to get available amount of money, based on miles / points of user and their discounts which is based on cart or items.
 
