@@ -203,36 +203,33 @@ if (oAuthManager.isTokenSet()) {
 
 ## <a name="list_of_controllers"></a>List of Controllers
 
-* [PayWithMilesPointsController](#pay_with_miles_points_controller)
-* [EarnMilesPointsController](#earn_miles_points_controller)
+* [PayWithMilesController](#pay_with_miles_controller)
+* [EarnMilesController](#earn_miles_controller)
 * [AuthenticationController](#authentication_controller)
 * [ReturnController](#return_controller)
 
-## <a name="pay_with_miles_points_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PayWithMilesPointsController") PayWithMilesPointsController
+## <a name="pay_with_miles_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PayWithMilesController") PayWithMilesController
 
 ### Get singleton instance
 
-The singleton instance of the ``` PayWithMilesPointsController ``` class can be accessed from the API Client.
+The singleton instance of the ``` PayWithMilesController ``` class can be accessed from the API Client.
 
 ```javascript
-var controller = lib.PayWithMilesPointsController;
+var controller = lib.PayWithMilesController;
 ```
 
-### <a name="list_point_payments"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesPointsController.listPointPayments") listPointPayments
+### <a name="list_mile_payments"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.listMilePayments") listMilePayments
 
-> This endpoint allows to get list of payments. In order to get detailed payment history and reconciliation you can use this API.
+> This endpoint allows to get list of payments. In order to get detailed payment history and reconciliation you can use this endpoint.
 
 
 ```javascript
-function listPointPayments(accept, contentType, authorization, storeCode, filterByCreatedAt, filterByStatus, sortBy, callback)
+function listMilePayments(storeCode, filterByCreatedAt, filterByStatus, sortBy, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | storeCode |  ``` Required ```  | An identifier for online store. |
 | filterByCreatedAt |  ``` Required ```  | Filter for created_at field. It is accepted a valid date range value. The format is YYYY-MM-DD...YYYY-MM-DD. |
 | filterByStatus |  ``` Optional ```  | Filter for status field. It is accepted a valid status value of payment. |
@@ -244,15 +241,12 @@ function listPointPayments(accept, contentType, authorization, storeCode, filter
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
     var storeCode = 'StoreCode';
     var filterByCreatedAt = 'FilterByCreatedAt';
     var filterByStatus = 'FilterByStatus';
     var sortBy = 'SortBy';
 
-    controller.listPointPayments(accept, contentType, authorization, storeCode, filterByCreatedAt, filterByStatus, sortBy, function(error, response, context) {
+    controller.listMilePayments(storeCode, filterByCreatedAt, filterByStatus, sortBy, function(error, response, context) {
 
     
     });
@@ -260,21 +254,18 @@ function listPointPayments(accept, contentType, authorization, storeCode, filter
 
 
 
-### <a name="create_refund_point_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesPointsController.createRefundPointPayment") createRefundPointPayment
+### <a name="create_refund_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.createRefundMilePayment") createRefundMilePayment
 
 > This endpoint allows to refund a payment.
 
 
 ```javascript
-function createRefundPointPayment(accept, contentType, authorization, body, callback)
+function createRefundMilePayment(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -283,12 +274,9 @@ function createRefundPointPayment(accept, contentType, authorization, body, call
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
-    var body = new RefundPointPaymentRequest({"key":"value"});
+    var body = new RefundMilePaymentRequest({"key":"value"});
 
-    controller.createRefundPointPayment(accept, contentType, authorization, body, function(error, response, context) {
+    controller.createRefundMilePayment(body, function(error, response, context) {
 
     
     });
@@ -296,21 +284,18 @@ function createRefundPointPayment(accept, contentType, authorization, body, call
 
 
 
-### <a name="delete_cancel_point_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesPointsController.deleteCancelPointPayment") deleteCancelPointPayment
+### <a name="delete_cancel_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.deleteCancelMilePayment") deleteCancelMilePayment
 
 > This endpoint allows to cancel a payment.
 
 
 ```javascript
-function deleteCancelPointPayment(accept, contentType, authorization, body, callback)
+function deleteCancelMilePayment(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -319,12 +304,9 @@ function deleteCancelPointPayment(accept, contentType, authorization, body, call
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
-    var body = new CancelPointPaymentRequest({"key":"value"});
+    var body = new CancelMilePaymentRequest({"key":"value"});
 
-    controller.deleteCancelPointPayment(accept, contentType, authorization, body, function(error, response, context) {
+    controller.deleteCancelMilePayment(body, function(error, response, context) {
 
     
     });
@@ -332,21 +314,18 @@ function deleteCancelPointPayment(accept, contentType, authorization, body, call
 
 
 
-### <a name="update_complete_point_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesPointsController.updateCompletePointPayment") updateCompletePointPayment
+### <a name="update_complete_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.updateCompleteMilePayment") updateCompleteMilePayment
 
 > This endpoint allows to complete a payment.
 
 
 ```javascript
-function updateCompletePointPayment(accept, contentType, authorization, body, callback)
+function updateCompleteMilePayment(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -355,12 +334,9 @@ function updateCompletePointPayment(accept, contentType, authorization, body, ca
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
-    var body = new CompletePointPaymentRequest({"key":"value"});
+    var body = new CompleteMilePaymentRequest({"key":"value"});
 
-    controller.updateCompletePointPayment(accept, contentType, authorization, body, function(error, response, context) {
+    controller.updateCompleteMilePayment(body, function(error, response, context) {
 
     
     });
@@ -368,21 +344,18 @@ function updateCompletePointPayment(accept, contentType, authorization, body, ca
 
 
 
-### <a name="create_start_point_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesPointsController.createStartPointPayment") createStartPointPayment
+### <a name="create_start_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.createStartMilePayment") createStartMilePayment
 
-> After successful authentication and retrieving needed token,this endpoint allows to start a payment transaction. To be able to complete whole sale process successfully  also check "Complete Point Payment endpoint" please.
+> After successful authentication and retrieving needed token, this endpoint allows to start a payment transaction. To be able to complete whole payment process successfully also check "Complete Mile Payment endpoint" please.
 
 
 ```javascript
-function createStartPointPayment(accept, contentType, authorization, body, callback)
+function createStartMilePayment(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -391,12 +364,9 @@ function createStartPointPayment(accept, contentType, authorization, body, callb
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
-    var body = new StartPointPaymentRequest({"key":"value"});
+    var body = new StartMilePaymentRequest({"key":"value"});
 
-    controller.createStartPointPayment(accept, contentType, authorization, body, function(error, response, context) {
+    controller.createStartMilePayment(body, function(error, response, context) {
 
     
     });
@@ -406,31 +376,28 @@ function createStartPointPayment(accept, contentType, authorization, body, callb
 
 [Back to List of Controllers](#list_of_controllers)
 
-## <a name="earn_miles_points_controller"></a>![Class: ](https://apidocs.io/img/class.png ".EarnMilesPointsController") EarnMilesPointsController
+## <a name="earn_miles_controller"></a>![Class: ](https://apidocs.io/img/class.png ".EarnMilesController") EarnMilesController
 
 ### Get singleton instance
 
-The singleton instance of the ``` EarnMilesPointsController ``` class can be accessed from the API Client.
+The singleton instance of the ``` EarnMilesController ``` class can be accessed from the API Client.
 
 ```javascript
-var controller = lib.EarnMilesPointsController;
+var controller = lib.EarnMilesController;
 ```
 
-### <a name="create_order_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesPointsController.createOrderInfo") createOrderInfo
+### <a name="create_order_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.createOrderInfo") createOrderInfo
 
-> This endpoint allows to create an order for earn a miles / points. It may also include discounts and payments.
+> This endpoint allows to create an order for earn miles. It may also include discounts and payments.
 
 
 ```javascript
-function createOrderInfo(accept, contentType, authorization, body, callback)
+function createOrderInfo(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -439,12 +406,9 @@ function createOrderInfo(accept, contentType, authorization, body, callback)
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
     var body = new OrderRequest({"key":"value"});
 
-    controller.createOrderInfo(accept, contentType, authorization, body, function(error, response, context) {
+    controller.createOrderInfo(body, function(error, response, context) {
 
     
     });
@@ -452,21 +416,18 @@ function createOrderInfo(accept, contentType, authorization, body, callback)
 
 
 
-### <a name="create_cart_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesPointsController.createCartInfo") createCartInfo
+### <a name="create_cart_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.createCartInfo") createCartInfo
 
-> This endpoint allows to get available amount of money, based on miles / points of user and their discounts which is based on cart or items.
+> This endpoint allows to get available amount of money, based on miles of user and their discounts which is based on cart or items.
 
 
 ```javascript
-function createCartInfo(accept, contentType, authorization, body, callback)
+function createCartInfo(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -475,12 +436,9 @@ function createCartInfo(accept, contentType, authorization, body, callback)
 
 ```javascript
 
-    var accept = 'application/json';
-    var contentType = 'application/json';
-    var authorization = 'Bearer {{auth_token}}';
     var body = new CartRequest({"key":"value"});
 
-    controller.createCartInfo(accept, contentType, authorization, body, function(error, response, context) {
+    controller.createCartInfo(body, function(error, response, context) {
 
     
     });
@@ -558,15 +516,12 @@ var controller = lib.ReturnController;
 
 
 ```javascript
-function createStartReturn(accept, contentType, authorization, body, callback)
+function createStartReturn(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -575,12 +530,9 @@ function createStartReturn(accept, contentType, authorization, body, callback)
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
     var body = new StartReturnRequest({"key":"value"});
 
-    controller.createStartReturn(accept, contentType, authorization, body, function(error, response, context) {
+    controller.createStartReturn(body, function(error, response, context) {
 
     
     });
@@ -594,15 +546,12 @@ function createStartReturn(accept, contentType, authorization, body, callback)
 
 
 ```javascript
-function updateCompleteReturn(accept, contentType, authorization, body, callback)
+function updateCompleteReturn(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -611,12 +560,9 @@ function updateCompleteReturn(accept, contentType, authorization, body, callback
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
     var body = new CompleteReturnRequest({"key":"value"});
 
-    controller.updateCompleteReturn(accept, contentType, authorization, body, function(error, response, context) {
+    controller.updateCompleteReturn(body, function(error, response, context) {
 
     
     });
@@ -630,15 +576,12 @@ function updateCompleteReturn(accept, contentType, authorization, body, callback
 
 
 ```javascript
-function deleteCancelReturn(accept, contentType, authorization, body, callback)
+function deleteCancelReturn(body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| accept |  ``` Required ```  ``` DefaultValue ```  | It advertises which content type is able to understand. |
-| contentType |  ``` Required ```  ``` DefaultValue ```  | It tells the client what the content type of the returned. |
-| authorization |  ``` Required ```  | It includes OAuth2 token. |
 | body |  ``` Required ```  | The body of the request. |
 
 
@@ -647,12 +590,9 @@ function deleteCancelReturn(accept, contentType, authorization, body, callback)
 
 ```javascript
 
-    var accept = 'Accept';
-    var contentType = 'Content-Type';
-    var authorization = 'Authorization';
     var body = new CancelReturnRequest({"key":"value"});
 
-    controller.deleteCancelReturn(accept, contentType, authorization, body, function(error, response, context) {
+    controller.deleteCancelReturn(body, function(error, response, context) {
 
     
     });
