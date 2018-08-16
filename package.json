@@ -1,7 +1,7 @@
 {
   "name": "globalmilesecommerceapilib",
-  "version": "2.0.0",
-  "description": "API for Ecommerce Partners. This document includes Cart, Discount, Payment, Order and Return related endpoints provided by Global Miles.",
+  "version": "2.1.0",
+  "description": "API for E-commerce Partners. This document includes Cart, Discount, Payment, Order and Return related endpoints provided by Global Miles.",
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint lib"
@@ -18,7 +18,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.3"
   },
-  "dependencies": {
+    "dependencies": {
     "request": "^2.55.0",
     "moment": "^2.17.1"
   },

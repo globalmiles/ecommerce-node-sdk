@@ -1,6 +1,6 @@
 # Getting started
 
-API for Ecommerce Partners. This document includes Cart, Discount, Payment, Order and Return related endpoints provided by Global Miles.
+API for E-commerce Partners. This document includes Cart, Discount, Payment, Order and Return related endpoints provided by Global Miles.
 
 ## How to Build
 
@@ -13,7 +13,7 @@ To check if node and npm have been successfully installed, write the following c
 * `node --version`
 * `npm -version`
 
-![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
+![Version Check](https://apidocs.io/illustration/nodejs?step=versionCheck&workspaceFolder=Global%20Miles%20E-commerce%20API-Node)
 
 Now use npm to resolve all dependencies by running the following command in the root directory (of the SDK folder):
 
@@ -21,13 +21,13 @@ Now use npm to resolve all dependencies by running the following command in the 
 npm install
 ```
 
-![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
+![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency1&workspaceFolder=Global%20Miles%20E-commerce%20API-Node)
 
 ![Resolve Dependencies](https://apidocs.io/illustration/nodejs?step=resolveDependency2)
 
 This will install all dependencies in the `node_modules` folder.
 
-Once dependencies are resolved, you will need to move the folder `GlobalMilesEcommerceAPILib ` in to your `node_modules` folder.
+Once dependencies are resolved, you will need to move the folder `GlobalMilesECommerceAPILib ` in to your `node_modules` folder.
 
 ## How to Use
 
@@ -42,7 +42,7 @@ Click on `File` and select `Open Folder`.
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
+![Open Project](https://apidocs.io/illustration/nodejs?step=openProject&workspaceFolder=Global%20Miles%20E-commerce%20API-Node)
 
 ### 2. Creating a Test File
 
@@ -54,9 +54,9 @@ var lib = require('lib');
 
 Save changes.
 
-![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
+![Create new file](https://apidocs.io/illustration/nodejs?step=createNewFile&workspaceFolder=Global%20Miles%20E-commerce%20API-Node)
 
-![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
+![Save new file](https://apidocs.io/illustration/nodejs?step=saveNewFile&workspaceFolder=Global%20Miles%20E-commerce%20API-Node)
 
 ### 3. Running The Test File
 
@@ -66,7 +66,7 @@ To run the `index.js` file, open up the command prompt and navigate to the Path 
 node index.js
 ```
 
-![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Global%20Miles%20Ecommerce%20API-Node)
+![Run file](https://apidocs.io/illustration/nodejs?step=runProject&workspaceFolder=Global%20Miles%20E-commerce%20API-Node)
 
 
 ## How to Test
@@ -87,11 +87,11 @@ Tests can be run in a number of ways:
 ### Method 3 (Run specific controller's tests)
 
 1. Navigate to the `../test/Controllers/` directory from command prompt.
-2. Type `mocha  Global Miles Ecommerce APIController`  to run all the tests in that controller file.
+2. Type `mocha  Global Miles E-commerce APIController`  to run all the tests in that controller file.
 
 > To increase mocha's default timeout, you can change the `TEST_TIMEOUT` parameter's value in `TestBootstrap.js`.
 
-![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Global%20Miles%20Ecommerce%20APIController)
+![Run Tests](https://apidocs.io/illustration/nodejs?step=runTests&controllerName=Global%20Miles%20E-commerce%20APIController)
 
 ## Initialization
 
@@ -203,178 +203,10 @@ if (oAuthManager.isTokenSet()) {
 
 ## <a name="list_of_controllers"></a>List of Controllers
 
-* [PayWithMilesController](#pay_with_miles_controller)
 * [EarnMilesController](#earn_miles_controller)
 * [AuthenticationController](#authentication_controller)
 * [ReturnController](#return_controller)
-
-## <a name="pay_with_miles_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PayWithMilesController") PayWithMilesController
-
-### Get singleton instance
-
-The singleton instance of the ``` PayWithMilesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.PayWithMilesController;
-```
-
-### <a name="list_mile_payments"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.listMilePayments") listMilePayments
-
-> This endpoint allows to get list of payments. In order to get detailed payment history and reconciliation you can use this endpoint.
-
-
-```javascript
-function listMilePayments(storeCode, filterByCreatedAt, filterByStatus, sortBy, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| storeCode |  ``` Required ```  | An identifier for online store. |
-| filterByCreatedAt |  ``` Required ```  | Filter for created_at field. It is accepted a valid date range value. The format is YYYY-MM-DD...YYYY-MM-DD. |
-| filterByStatus |  ``` Optional ```  | Filter for status field. It is accepted a valid status value of payment. |
-| sortBy |  ``` Optional ```  | Sort for some selected fields. In order to sort descending "-" value will be used before the field. Valid field values are "created_at",  "updated_at", "status". |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var storeCode = 'StoreCode';
-    var filterByCreatedAt = 'FilterByCreatedAt';
-    var filterByStatus = 'FilterByStatus';
-    var sortBy = 'SortBy';
-
-    controller.listMilePayments(storeCode, filterByCreatedAt, filterByStatus, sortBy, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_refund_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.createRefundMilePayment") createRefundMilePayment
-
-> This endpoint allows to refund a payment.
-
-
-```javascript
-function createRefundMilePayment(body, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Required ```  | The body of the request. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var body = new RefundMilePaymentRequest({"key":"value"});
-
-    controller.createRefundMilePayment(body, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_cancel_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.deleteCancelMilePayment") deleteCancelMilePayment
-
-> This endpoint allows to cancel a payment.
-
-
-```javascript
-function deleteCancelMilePayment(body, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Required ```  | The body of the request. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var body = new CancelMilePaymentRequest({"key":"value"});
-
-    controller.deleteCancelMilePayment(body, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_complete_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.updateCompleteMilePayment") updateCompleteMilePayment
-
-> This endpoint allows to complete a payment.
-
-
-```javascript
-function updateCompleteMilePayment(body, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Required ```  | The body of the request. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var body = new CompleteMilePaymentRequest({"key":"value"});
-
-    controller.updateCompleteMilePayment(body, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_start_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.createStartMilePayment") createStartMilePayment
-
-> After successful authentication and retrieving needed token, this endpoint allows to start a payment transaction. To be able to complete whole payment process successfully also check "Complete Mile Payment endpoint" please.
-
-
-```javascript
-function createStartMilePayment(body, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Required ```  | The body of the request. |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var body = new StartMilePaymentRequest({"key":"value"});
-
-    controller.createStartMilePayment(body, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
+* [PayWithMilesController](#pay_with_miles_controller)
 
 ## <a name="earn_miles_controller"></a>![Class: ](https://apidocs.io/img/class.png ".EarnMilesController") EarnMilesController
 
@@ -386,13 +218,53 @@ The singleton instance of the ``` EarnMilesController ``` class can be accessed 
 var controller = lib.EarnMilesController;
 ```
 
-### <a name="create_order_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.createOrderInfo") createOrderInfo
+### <a name="list_orders"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.listOrders") listOrders
 
-> This endpoint allows to create an order for earn miles. It may also include discounts and payments.
+> This endpoint allows to get list of orders. In order to get detailed order history and reconciliation you can use this endpoint.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
 
 
 ```javascript
-function createOrderInfo(body, callback)
+function listOrders(filterStoreCode, filterCompletedAt, filterStatus, sort, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| filterStoreCode |  ``` Required ```  | Filter for an online store. |
+| filterCompletedAt |  ``` Required ```  | Filter for completed_at field. It is accepted a valid date range value. The format is YYYY-MM-DD..YYYY-MM-DD. |
+| filterStatus |  ``` Optional ```  | Filter for status field. It is accepted a valid status value of order. |
+| sort |  ``` Optional ```  | Sort for some selected fields. In order to sort descending "-" value will be used before the field. Valid field values are "completed_at", "created_at",  "updated_at", "status". |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var filterStoreCode = filter[store_code];
+    var filterCompletedAt = filter[completed_at];
+    var filterStatus = filter[status];
+    var sort = 'sort';
+
+    controller.listOrders(filterStoreCode, filterCompletedAt, filterStatus, sort, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_order"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.createOrder") createOrder
+
+> This endpoint allows to create an order for earn miles. It may also include discounts and payments.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function createOrder(body, callback)
 ```
 #### Parameters
 
@@ -408,7 +280,7 @@ function createOrderInfo(body, callback)
 
     var body = new OrderRequest({"key":"value"});
 
-    controller.createOrderInfo(body, function(error, response, context) {
+    controller.createOrder(body, function(error, response, context) {
 
     
     });
@@ -416,13 +288,47 @@ function createOrderInfo(body, callback)
 
 
 
-### <a name="create_cart_info"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.createCartInfo") createCartInfo
+### <a name="retrieve_order"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.retrieveOrder") retrieveOrder
 
-> This endpoint allows to get available amount of money, based on miles of user and their discounts which is based on cart or items.
+> This endpoint allows to get an order.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
 
 
 ```javascript
-function createCartInfo(body, callback)
+function retrieveOrder(transactionId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| transactionId |  ``` Required ```  | The ID of the transaction that represents the order. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var transactionId = transaction_id;
+
+    controller.retrieveOrder(transactionId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_cart"></a>![Method: ](https://apidocs.io/img/method.png ".EarnMilesController.createCart") createCart
+
+> This endpoint allows to get available amount of money, based on miles of user and their discounts which is based on cart or items.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function createCart(body, callback)
 ```
 #### Parameters
 
@@ -438,7 +344,7 @@ function createCartInfo(body, callback)
 
     var body = new CartRequest({"key":"value"});
 
-    controller.createCartInfo(body, function(error, response, context) {
+    controller.createCart(body, function(error, response, context) {
 
     
     });
@@ -462,7 +368,9 @@ var controller = lib.AuthenticationController;
 
 > *Tags:*  ``` Skips Authentication ``` 
 
-> An access token will allow you to make requests for the system. We support only one type of token: client_credentials
+> An access token will allow you to make requests for the system. We support only one type of token: client_credentials.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
 
 
 ```javascript
@@ -510,13 +418,47 @@ The singleton instance of the ``` ReturnController ``` class can be accessed fro
 var controller = lib.ReturnController;
 ```
 
-### <a name="create_start_return"></a>![Method: ](https://apidocs.io/img/method.png ".ReturnController.createStartReturn") createStartReturn
+### <a name="retrieve_return"></a>![Method: ](https://apidocs.io/img/method.png ".ReturnController.retrieveReturn") retrieveReturn
 
-> This endpoint allows to start a return for a specific order.
+> This endpoint allows to get a return.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
 
 
 ```javascript
-function createStartReturn(body, callback)
+function retrieveReturn(returnProvisionToken, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| returnProvisionToken |  ``` Required ```  | The token value of a return. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var returnProvisionToken = return_provision_token;
+
+    controller.retrieveReturn(returnProvisionToken, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="delete_cancel_return"></a>![Method: ](https://apidocs.io/img/method.png ".ReturnController.deleteCancelReturn") deleteCancelReturn
+
+> This endpoint allows to cancel a return.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function deleteCancelReturn(body, callback)
 ```
 #### Parameters
 
@@ -530,9 +472,9 @@ function createStartReturn(body, callback)
 
 ```javascript
 
-    var body = new StartReturnRequest({"key":"value"});
+    var body = new CancelReturnRequest({"key":"value"});
 
-    controller.createStartReturn(body, function(error, response, context) {
+    controller.deleteCancelReturn(body, function(error, response, context) {
 
     
     });
@@ -543,6 +485,8 @@ function createStartReturn(body, callback)
 ### <a name="update_complete_return"></a>![Method: ](https://apidocs.io/img/method.png ".ReturnController.updateCompleteReturn") updateCompleteReturn
 
 > This endpoint allows to complete a return.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
 
 
 ```javascript
@@ -570,13 +514,15 @@ function updateCompleteReturn(body, callback)
 
 
 
-### <a name="delete_cancel_return"></a>![Method: ](https://apidocs.io/img/method.png ".ReturnController.deleteCancelReturn") deleteCancelReturn
+### <a name="create_start_return"></a>![Method: ](https://apidocs.io/img/method.png ".ReturnController.createStartReturn") createStartReturn
 
-> This endpoint allows to cancel a return.
+> This endpoint allows to start a return for a specific order.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
 
 
 ```javascript
-function deleteCancelReturn(body, callback)
+function createStartReturn(body, callback)
 ```
 #### Parameters
 
@@ -590,9 +536,225 @@ function deleteCancelReturn(body, callback)
 
 ```javascript
 
-    var body = new CancelReturnRequest({"key":"value"});
+    var body = new StartReturnRequest({"key":"value"});
 
-    controller.deleteCancelReturn(body, function(error, response, context) {
+    controller.createStartReturn(body, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="list_returns"></a>![Method: ](https://apidocs.io/img/method.png ".ReturnController.listReturns") listReturns
+
+> This endpoint allows to get list of returns. In order to get detailed return history and reconciliation you can use this endpoint.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function listReturns(filterStoreCode, filterCreatedAt, filterStatus, sort, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| filterStoreCode |  ``` Required ```  | Filter for an online store. |
+| filterCreatedAt |  ``` Required ```  | Filter for created_at field. It is accepted a valid date range value. The format is YYYY-MM-DD..YYYY-MM-DD. |
+| filterStatus |  ``` Optional ```  | Filter for status field. It is accepted a valid status value of return. |
+| sort |  ``` Optional ```  | Sort for some selected fields. In order to sort descending "-" value will be used before the field. Valid field values are "created_at",  "updated_at", "status". |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var filterStoreCode = filter[store_code];
+    var filterCreatedAt = filter[created_at];
+    var filterStatus = filter[status];
+    var sort = 'sort';
+
+    controller.listReturns(filterStoreCode, filterCreatedAt, filterStatus, sort, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="pay_with_miles_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PayWithMilesController") PayWithMilesController
+
+### Get singleton instance
+
+The singleton instance of the ``` PayWithMilesController ``` class can be accessed from the API Client.
+
+```javascript
+var controller = lib.PayWithMilesController;
+```
+
+### <a name="list_mile_payments"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.listMilePayments") listMilePayments
+
+> This endpoint allows to get list of payments. In order to get detailed payment history and reconciliation you can use this endpoint.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function listMilePayments(filterStoreCode, filterCreatedAt, filterStatus, sort, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| filterStoreCode |  ``` Required ```  | Filter for an online store. |
+| filterCreatedAt |  ``` Required ```  | Filter for created_at field. It is accepted a valid date range value. The format is YYYY-MM-DD..YYYY-MM-DD. |
+| filterStatus |  ``` Optional ```  | Filter for status field. It is accepted a valid status value of payment. |
+| sort |  ``` Optional ```  | Sort for some selected fields. In order to sort descending "-" value will be used before the field. Valid field values are "created_at",  "updated_at", "status". |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var filterStoreCode = filter[store_code];
+    var filterCreatedAt = filter[created_at];
+    var filterStatus = filter[status];
+    var sort = 'sort';
+
+    controller.listMilePayments(filterStoreCode, filterCreatedAt, filterStatus, sort, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_start_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.createStartMilePayment") createStartMilePayment
+
+> After successful authentication and retrieving needed token, this endpoint allows to start a payment transaction. To be able to complete whole payment process successfully also check "Complete Mile Payment endpoint" please.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function createStartMilePayment(body, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| body |  ``` Required ```  | The body of the request. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var body = new StartMilePaymentRequest({"key":"value"});
+
+    controller.createStartMilePayment(body, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_complete_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.updateCompleteMilePayment") updateCompleteMilePayment
+
+> This endpoint allows to complete a payment.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function updateCompleteMilePayment(body, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| body |  ``` Required ```  | The body of the request. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var body = new CompleteMilePaymentRequest({"key":"value"});
+
+    controller.updateCompleteMilePayment(body, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="delete_cancel_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.deleteCancelMilePayment") deleteCancelMilePayment
+
+> This endpoint allows to cancel a payment.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function deleteCancelMilePayment(body, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| body |  ``` Required ```  | The body of the request. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var body = new CancelMilePaymentRequest({"key":"value"});
+
+    controller.deleteCancelMilePayment(body, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_refund_mile_payment"></a>![Method: ](https://apidocs.io/img/method.png ".PayWithMilesController.createRefundMilePayment") createRefundMilePayment
+
+> This endpoint allows to refund a payment.
+> 
+> You can try this API with configuring client parameters in Console Tab below. Test OAuthClientId is b30359c21700fd6f2b91154adcb7b37bab3e7e0a33e22682e5dd149d7a6ac4df and OAuthClientSecret is 4bc4335faad41d6a23cd059e495005f00496a64e34e6187b1d72695a8debd28c
+
+
+```javascript
+function createRefundMilePayment(body, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| body |  ``` Required ```  | The body of the request. |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var body = new RefundMilePaymentRequest({"key":"value"});
+
+    controller.createRefundMilePayment(body, function(error, response, context) {
 
     
     });
